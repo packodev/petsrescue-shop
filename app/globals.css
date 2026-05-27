@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-cream-50 text-ink-700 antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+
+h1, h2, h3, h4 {
+  @apply font-serif text-ink-800;
+  letter-spacing: -0.01em;
+}
+
+a {
+  @apply transition-colors;
+}
+
+.eyebrow {
+  @apply text-xs font-medium uppercase tracking-widest text-emerald-700;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-wide transition;
+}
+
+.btn-primary {
+  @apply btn bg-ink-800 text-cream-50 hover:bg-ink-900 disabled:opacity-50;
+}
+
+.btn-secondary {
+  @apply btn bg-emerald-700 text-cream-50 hover:bg-emerald-800 disabled:opacity-50;
+}
+
+.btn-outline {
+  @apply btn border border-ink-300 bg-transparent text-ink-800 hover:border-ink-800 hover:bg-ink-50;
+}
+
+.btn-ghost {
+  @apply btn text-ink-700 hover:text-ink-900;
+}
+
+.btn-sm {
+  @apply px-4 py-2 text-xs;
+}
+
+.input {
+  @apply w-full border border-ink-200 bg-white px-3 py-2.5 text-sm text-ink-800 outline-none transition focus:border-ink-800;
+}
+
+.label {
+  @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-ink-500;
+}
+
+.card {
+  @apply border border-ink-100 bg-white;
+}
+
+.rule {
+  @apply h-px w-12 bg-ink-300;
+}
+
+.link-underline {
+  @apply border-b border-ink-300 pb-0.5 text-ink-700 hover:border-ink-800 hover:text-ink-900;
+}
+
+/* Utility for editorial section labels */
+.section-title {
+  @apply font-serif text-3xl font-normal text-ink-800 md:text-4xl;
+}
