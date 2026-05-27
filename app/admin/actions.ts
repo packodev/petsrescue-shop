@@ -99,7 +99,7 @@ const variantSchema = z.object({
   sortOrder: z.coerce.number().int().min(0).optional(),
 });
 
-export type VariantFormState = { error?: string } | undefined;
+export type VariantFormState = { error?: string; ok?: boolean } | undefined;
 
 export async function saveVariantAction(
   _prev: VariantFormState,
@@ -138,7 +138,7 @@ export async function saveVariantAction(
   revalidatePath(`/admin/products/${data.productId}`);
   revalidatePath("/products");
   revalidatePath("/");
-  return undefined;
+  return { ok: true };
 }
 
 export async function deleteVariantAction(formData: FormData) {

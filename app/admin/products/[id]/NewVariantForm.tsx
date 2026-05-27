@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { saveVariantAction, type VariantFormState } from "../../actions";
 
@@ -20,13 +20,14 @@ export function NewVariantForm({ productId }: { productId: string }) {
   );
   const formRef = useRef<HTMLFormElement>(null);
 
+  useEffect(() => {
+    if (state?.ok) formRef.current?.reset();
+  }, [state]);
+
   return (
     <form
       ref={formRef}
-      action={async (fd) => {
-        const result = await action(fd);
-        if (!result?.error) formRef.current?.reset();
-      }}
+      action={action}
       className="card grid grid-cols-2 gap-2 p-4 md:grid-cols-6"
     >
       <input type="hidden" name="productId" value={productId} />
