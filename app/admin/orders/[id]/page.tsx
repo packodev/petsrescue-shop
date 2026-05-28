@@ -121,12 +121,13 @@ export default async function AdminOrderDetailPage({
           </div>
           <div className="card p-4 text-sm">
             <h3 className="mb-2 font-semibold">Payment</h3>
-            <p>
-              {order.paymentMethod === "COD"
-                ? "Cash on delivery"
-                : "Credit card (demo)"}
-            </p>
+            <p>Card (Stripe)</p>
             <p className="text-ink-500">Status: {order.status}</p>
+            {order.stripeSessionId && (
+              <p className="mt-1 break-all text-xs text-ink-400">
+                Stripe session: {order.stripeSessionId}
+              </p>
+            )}
           </div>
           {order.notes && (
             <div className="card p-4 text-sm">

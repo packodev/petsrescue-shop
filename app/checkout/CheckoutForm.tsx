@@ -7,7 +7,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <button type="submit" className="btn-primary w-full" disabled={pending}>
-      {pending ? "Placing order..." : "Place order"}
+      {pending ? "Redirecting to payment..." : "Continue to payment →"}
     </button>
   );
 }
@@ -82,31 +82,13 @@ export function CheckoutForm({
         </div>
       </fieldset>
 
-      <fieldset className="space-y-3">
-        <legend className="eyebrow mb-3">Payment</legend>
-        <label className="flex cursor-pointer items-start gap-3 border border-ink-200 p-4 transition has-[:checked]:border-ink-800 has-[:checked]:bg-cream-50">
-          <input
-            type="radio"
-            name="paymentMethod"
-            value="COD"
-            defaultChecked
-            className="mt-1"
-          />
-          <div>
-            <div className="font-medium text-ink-800">Cash on delivery</div>
-            <div className="text-xs text-ink-500">Pay with cash when your order arrives.</div>
-          </div>
-        </label>
-        <label className="flex cursor-pointer items-start gap-3 border border-ink-200 p-4 transition has-[:checked]:border-ink-800 has-[:checked]:bg-cream-50">
-          <input type="radio" name="paymentMethod" value="CARD" className="mt-1" />
-          <div>
-            <div className="font-medium text-ink-800">Credit card</div>
-            <div className="text-xs text-ink-500">
-              Demo only — no real charge. Replace with Stripe in production.
-            </div>
-          </div>
-        </label>
-      </fieldset>
+      <div className="rounded-md border border-ink-100 bg-cream-50 p-4 text-sm text-ink-600">
+        <div className="font-medium text-ink-800">Secure payment</div>
+        <p className="mt-1 text-xs text-ink-500">
+          You&apos;ll enter your card details on the next page. We use Stripe — we
+          never see or store your card number.
+        </p>
+      </div>
 
       {state?.error && <p className="text-sm text-red-700">{state.error}</p>}
 

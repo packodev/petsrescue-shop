@@ -61,25 +61,26 @@ model Variant {
 }
 
 model Order {
-  id             String      @id @default(cuid())
-  userId         String?
-  user           User?       @relation(fields: [userId], references: [id])
-  email          String
-  fullName       String
-  address        String
-  city           String
-  postalCode     String
-  country        String
-  phone          String
-  status         String      @default("PENDING") // PENDING | PAID | SHIPPED | DELIVERED | CANCELLED
-  subtotal       Float
-  shipping       Float
-  total          Float
-  paymentMethod  String      @default("COD") // COD | CARD
-  notes          String?
-  items          OrderItem[]
-  createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @updatedAt
+  id                String      @id @default(cuid())
+  userId            String?
+  user              User?       @relation(fields: [userId], references: [id])
+  email             String
+  fullName          String
+  address           String
+  city              String
+  postalCode        String
+  country           String
+  phone             String
+  status            String      @default("PENDING") // PENDING | PAID | SHIPPED | DELIVERED | CANCELLED
+  subtotal          Float
+  shipping          Float
+  total             Float
+  paymentMethod     String      @default("CARD") // CARD (via Stripe)
+  stripeSessionId   String?     @unique
+  notes             String?
+  items             OrderItem[]
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
 }
 
 model OrderItem {

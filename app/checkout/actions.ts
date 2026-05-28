@@ -1,11 +1,14 @@
 "use server";
 
 import { z } from "zod";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import Stripe from "stripe";
 import { prisma } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
-import { clearCart, getCartWithProducts } from "@/lib/cart";
+import { getCartWithProducts } from "@/lib/cart";
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 const checkoutSchema = z.object({
   email: z.string().email(),
@@ -16,7 +19,6 @@ const checkoutSchema = z.object({
   country: z.string().min(2),
   phone: z.string().min(4),
   notes: z.string().max(500).optional(),
-  paymentMethod: z.enum(["COD", "CARD"]),
 });
 
 export type CheckoutState = { error?: string } | undefined;
@@ -34,7 +36,6 @@ export async function placeOrderAction(
     country: formData.get("country"),
     phone: formData.get("phone"),
     notes: formData.get("notes") || undefined,
-    paymentMethod: formData.get("paymentMethod"),
   });
   if (!parsed.success) {
     return { error: parsed.error.issues[0]?.message ?? "Invalid input" };
@@ -61,11 +62,11 @@ export async function placeOrderAction(
       country: parsed.data.country,
       phone: parsed.data.phone,
       notes: parsed.data.notes,
-      paymentMethod: parsed.data.paymentMethod,
+      paymentMethod: "CARD",
       subtotal,
       shipping,
       total,
-      status: parsed.data.paymentMethod === "CARD" ? "PAID" : "PENDING",
+      status: "PENDING",
       items: {
         create: items.map((i) => ({
           productId: i.productId,
@@ -80,23 +81,52 @@ export async function placeOrderAction(
     },
   });
 
-  // Decrement stock (best-effort; demo doesn't use transactions on SQLite for simplicity)
-  for (const i of items) {
-    if (i.variantId) {
-      await prisma.variant.update({
-        where: { id: i.variantId },
-        data: { stock: { decrement: i.quantity } },
-      });
-    } else {
-      await prisma.product.update({
-        where: { id: i.productId },
-        data: { stock: { decrement: i.quantity } },
-      });
-    }
-  }
+  const h = headers();
+  const host = h.get("host") ?? "localhost:3000";
+  const proto = h.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
+  const origin = `${proto}://${host}`;
 
-  await clearCart();
-  revalidatePath("/");
-  revalidatePath("/account");
-  redirect(`/checkout/success?id=${order.id}`);
+  const session = await stripe.checkout.sessions.create({
+    mode: "payment",
+    payment_method_types: ["card"],
+    customer_email: parsed.data.email,
+    line_items: [
+      ...items.map((i) => ({
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: i.variantName ? `${i.name} — ${i.variantName}` : i.name,
+            images: i.image ? [i.image] : undefined,
+          },
+          unit_amount: Math.round(i.price * 100),
+        },
+        quantity: i.quantity,
+      })),
+    ],
+    shipping_options:
+      shipping > 0
+        ? [
+            {
+              shipping_rate_data: {
+                type: "fixed_amount",
+                fixed_amount: { amount: Math.round(shipping * 100), currency: "usd" },
+                display_name: "Standard shipping (7–14 days)",
+              },
+            },
+          ]
+        : undefined,
+    success_url: `${origin}/checkout/success?id=${order.id}`,
+    cancel_url: `${origin}/checkout?canceled=1`,
+    metadata: { orderId: order.id },
+  });
+
+  await prisma.order.update({
+    where: { id: order.id },
+    data: { stripeSessionId: session.id },
+  });
+
+  if (!session.url) {
+    return { error: "Could not start payment. Please try again." };
+  }
+  redirect(session.url);
 }
