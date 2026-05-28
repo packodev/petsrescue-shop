@@ -47,6 +47,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           name: v.name,
           image: v.image,
           priceOverride: v.priceOverride,
+          compareAt: v.compareAt,
           stock: v.stock,
         }))}
       />

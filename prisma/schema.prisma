@@ -53,6 +53,7 @@ model Variant {
   name          String      // e.g. "Labrador Motif"
   image         String
   priceOverride Float?      // null = use product.price
+  compareAt     Float?      // null = no discount for this variant
   stock         Int         @default(100)
   sortOrder     Int         @default(0)
   orderItems    OrderItem[]

@@ -8,10 +8,12 @@ const categories = [{ name: "Puzzles", slug: "puzzles" }];
 // Each design gets these three size variants. priceOverride is what the
 // customer actually pays for that size; the base Product.price below is
 // the small (default) price so listing pages still show a sensible number.
+// Each size gets its own compareAt so the 20% off label is correct
+// for every variant, not just Small.
 const sizes = [
-  { name: "Small — 300 pieces", priceOverride: 19.99, sortOrder: 0 },
-  { name: "Medium — 500 pieces", priceOverride: 29.99, sortOrder: 1 },
-  { name: "Large — 1,000 pieces", priceOverride: 39.99, sortOrder: 2 },
+  { name: "Small — 300 pieces", priceOverride: 19.99, compareAt: 24.99, sortOrder: 0 },
+  { name: "Medium — 500 pieces", priceOverride: 29.99, compareAt: 37.49, sortOrder: 1 },
+  { name: "Large — 1,000 pieces", priceOverride: 39.99, compareAt: 49.99, sortOrder: 2 },
 ];
 
 const designs = [
@@ -116,6 +118,7 @@ async function main() {
             name: s.name,
             image: d.image,
             priceOverride: s.priceOverride,
+            compareAt: s.compareAt,
             stock: 100,
             sortOrder: s.sortOrder,
           })),

@@ -23,6 +23,7 @@ type Variant = {
   name: string;
   image: string;
   priceOverride: number | null;
+  compareAt: number | null;
   stock: number;
 };
 
@@ -44,6 +45,7 @@ export function ProductView({
 
   const selectedVariant = variants.find((v) => v.id === variantId) ?? null;
   const price = selectedVariant?.priceOverride ?? product.price;
+  const compareAt = selectedVariant?.compareAt ?? product.compareAt;
   const stock = selectedVariant?.stock ?? product.stock;
 
   const gallery = product.images.length > 0 ? product.images : [product.image];
@@ -78,13 +80,13 @@ export function ProductView({
           <span className="text-3xl font-bold text-ink-900">
             {formatMoney(price)}
           </span>
-          {product.compareAt && product.compareAt > price && (
+          {compareAt && compareAt > price && (
             <>
               <span className="text-lg text-ink-300 line-through">
-                {formatMoney(product.compareAt)}
+                {formatMoney(compareAt)}
               </span>
               <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-red-700">
-                {Math.round((1 - price / product.compareAt) * 100)}% off
+                {Math.round((1 - price / compareAt) * 100)}% off
               </span>
             </>
           )}
