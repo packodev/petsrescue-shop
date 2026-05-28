@@ -59,7 +59,7 @@ export function HeroCarousel({ images }: { images: string[] }) {
           >
             <Image
               src={src}
-              alt={`Crystal design ${i + 1}`}
+              alt={`Puzzle design ${i + 1}`}
               fill
               priority={i === 0}
               className="object-cover"

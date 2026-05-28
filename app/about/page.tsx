@@ -75,9 +75,9 @@ export default async function AboutPage() {
         <div className="rule mx-auto mt-5" />
         <div className="mt-10 space-y-6 text-base leading-relaxed text-ink-600">
           <p>
-            When you order a crystal, you&apos;re paying for two things at
-            once: a beautifully hand-finished keepsake, and the continuation
-            of this rescue work. After we cover the cost of the crystal
+            When you order a puzzle, you&apos;re paying for two things at
+            once: a beautifully illustrated pet puzzle, and the continuation
+            of this rescue work. After we cover the cost of the puzzle
             itself and shipping it to you, what&apos;s left goes directly to
             the animals.
           </p>
@@ -121,8 +121,8 @@ export default async function AboutPage() {
         <h2 className="section-title">Ready to help?</h2>
         <div className="rule mx-auto mt-5" />
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-500">
-          Pick a 3D crystal from our collection. Get a keepsake that lasts a
-          lifetime — and help another animal find one too.
+          Pick a puzzle from our collection. Get a quiet afternoon — and help
+          another animal find a home.
         </p>
         <div className="mt-8">
           <Link

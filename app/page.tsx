@@ -34,9 +34,9 @@ export default async function HomePage() {
             </h1>
             <div className="rule mt-6" />
             <p className="mt-6 max-w-md text-base leading-relaxed text-ink-500">
-              A collection of 3D laser-engraved crystals — hand-finished and
-              made to last a lifetime. Every order helps us feed, treat and
-              rehome more animals.
+              Beautifully illustrated pet puzzles, available in three sizes —
+              a quiet, screen-free way to spend an afternoon. Every order
+              helps us feed, treat and rehome more animals.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
@@ -58,25 +58,25 @@ export default async function HomePage() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="text-center">
             <p className="eyebrow">How it works</p>
-            <h2 className="section-title mt-2">From our shelf to yours</h2>
+            <h2 className="section-title mt-2">From design to doorstep</h2>
             <div className="rule mx-auto mt-5" />
           </div>
           <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3">
             {[
               {
                 step: "01",
-                title: "Choose your design",
-                body: "Browse our collection of 3D laser-engraved crystals. Each design is unique — pick the one that speaks to you.",
+                title: "Pick a design",
+                body: "Browse our collection of pet illustrations. Each puzzle is a unique design — pick the one that speaks to you.",
               },
               {
                 step: "02",
-                title: "Hand-finished & packaged",
-                body: "Every crystal is inspected by hand and carefully packaged in a protective gift box, ready to display or give.",
+                title: "Choose your size",
+                body: "Three sizes available — small for the coffee table, medium for the family, large for a serious weekend project.",
               },
               {
                 step: "03",
                 title: "Ships in 7–14 days",
-                body: "Delivered to your door across the United States. A keepsake that lasts a lifetime — and helps more animals.",
+                body: "Delivered to your door across the United States. A gift, a hobby, and a rescued animal — all in one.",
               },
             ].map((s) => (
               <div key={s.step} className="text-center">
@@ -171,15 +171,19 @@ export default async function HomePage() {
           {[
             {
               q: "How long does it take?",
-              a: "Most orders ship within 7–14 days. You'll get a tracking link by email as soon as your crystal is on its way.",
+              a: "Most orders ship within 7–14 days. You'll get a tracking link by email as soon as your puzzle is on its way.",
             },
             {
               q: "Do you ship to all 50 US states?",
               a: "Yes — we currently ship across the United States only.",
             },
             {
-              q: "How is the crystal made?",
-              a: "Each piece is K9 optical crystal with a 3D image laser-engraved inside. The image appears suspended within the crystal — no surface etching, no fading over time.",
+              q: "What are the puzzles made of?",
+              a: "Sturdy premium cardboard with eco-friendly inks, printed in high-resolution. Each puzzle ships in a gift-ready box with the design printed on the lid.",
+            },
+            {
+              q: "What sizes are available?",
+              a: "Three sizes for every design — small (around 250 pieces), medium (around 500 pieces) and large (around 1,000 pieces). Exact piece count is shown on each product page.",
             },
             {
               q: "How much of my purchase goes to the rescue?",
@@ -204,14 +208,14 @@ export default async function HomePage() {
       <section className="border-t border-ink-100 bg-ink-900 text-cream-50">
         <div className="mx-auto max-w-6xl px-6 py-20 text-center">
           <p className="text-xs uppercase tracking-widest text-emerald-400">
-            One photo · one crystal · one rescued life
+            One puzzle · one quiet afternoon · one rescued life
           </p>
           <h2 className="mt-4 font-serif text-4xl text-cream-50 md:text-5xl">
-            Order yours today.
+            Pick yours today.
           </h2>
           <div className="mx-auto mt-5 h-px w-12 bg-cream-50/30" />
           <p className="mx-auto mt-6 max-w-md text-sm leading-relaxed text-cream-100/80">
-            A keepsake of your pet. A gift to another. Made to last forever.
+            A puzzle for you. A gift to an animal. A moment that means more.
           </p>
           <div className="mt-10">
             <Link

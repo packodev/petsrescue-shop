@@ -10,15 +10,15 @@ export function Footer() {
               Pets<span className="italic text-emerald-700">Rescue</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-500">
-              Custom 3D crystals of your pet — laser-engraved with the photo
-              you send us. Every order helps us feed, treat and rehome more
+              Beautifully illustrated pet puzzles in multiple designs and
+              three sizes. Every order helps us feed, treat and rehome more
               animals in need.
             </p>
           </div>
           <div className="md:col-span-2">
             <h4 className="eyebrow mb-4">Shop</h4>
             <ul className="space-y-2 text-sm text-ink-600">
-              <li><Link href="/products" className="hover:text-ink-900">3D Crystal</Link></li>
+              <li><Link href="/products" className="hover:text-ink-900">All puzzles</Link></li>
               <li><Link href="/#how-it-works" className="hover:text-ink-900">How it works</Link></li>
             </ul>
           </div>

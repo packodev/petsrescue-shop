@@ -20,9 +20,9 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "PetsRescue — Honor your pet, help us rescue more",
+  title: "PetsRescue — Pet-themed puzzles that help us rescue more",
   description:
-    "Custom 3D crystals laser-engraved with your pet's photo. Every order supports our rescue work — feeding, treating, and rehoming pets in need.",
+    "Beautifully illustrated pet puzzles in multiple designs and three sizes. Every order supports our rescue work — feeding, treating, and rehoming pets in need.",
 };
 
 export default async function RootLayout({
