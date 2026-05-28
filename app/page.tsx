@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
+import { HeroCarousel } from "@/components/HeroCarousel";
 
 export default async function HomePage() {
   const product = await prisma.product.findFirst({
@@ -15,19 +16,15 @@ export default async function HomePage() {
       <section className="relative">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
           <div className="md:order-2">
-            <div className="relative aspect-[4/5] overflow-hidden bg-cream-100 shadow-sm">
-              <Image
-                src={
-                  product?.image ??
-                  "https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?w=1200&q=85"
-                }
-                alt="3D crystal of a pet"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 600px"
-              />
-            </div>
+            <HeroCarousel
+              images={[
+                product?.image ??
+                  "https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?w=1200&q=85",
+                "https://images.unsplash.com/photo-1530041539828-114de669390e?w=1200&q=85",
+                "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=1200&q=85",
+                "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200&q=85",
+              ]}
+            />
           </div>
           <div className="md:order-1">
             <p className="eyebrow">A keepsake that gives back</p>
