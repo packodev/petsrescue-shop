@@ -41,9 +41,21 @@ export default async function HomePage() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href={product ? `/products/${product.slug}` : "/products"}
-                className="btn-primary"
+                className="btn-primary gap-2"
               >
-                {product ? `Order yours — ${formatMoney(product.price)}` : "Shop now"}
+                {product ? (
+                  <>
+                    <span>Order yours —</span>
+                    <span>{formatMoney(product.price)}</span>
+                    {product.compareAt && product.compareAt > product.price && (
+                      <span className="text-cream-100/60 line-through">
+                        {formatMoney(product.compareAt)}
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  "Shop now"
+                )}
               </Link>
               <Link href="#how-it-works" className="link-underline text-sm">
                 How it works
@@ -220,9 +232,21 @@ export default async function HomePage() {
           <div className="mt-10">
             <Link
               href={product ? `/products/${product.slug}` : "/products"}
-              className="inline-flex items-center justify-center bg-cream-50 px-8 py-3 text-sm font-medium tracking-wide text-ink-900 transition hover:bg-cream-200"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-cream-50 px-8 py-3 text-sm font-semibold tracking-wide text-ink-900 transition hover:bg-cream-200"
             >
-              {product ? `Order — ${formatMoney(product.price)}` : "Shop now"}
+              {product ? (
+                <>
+                  <span>Order —</span>
+                  <span>{formatMoney(product.price)}</span>
+                  {product.compareAt && product.compareAt > product.price && (
+                    <span className="text-ink-400 line-through">
+                      {formatMoney(product.compareAt)}
+                    </span>
+                  )}
+                </>
+              ) : (
+                "Shop now"
+              )}
             </Link>
           </div>
         </div>
