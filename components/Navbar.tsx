@@ -17,7 +17,7 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: User }) {
           href="/"
           className="col-span-2 text-center font-serif text-2xl font-medium tracking-wide text-ink-900 md:col-span-1"
         >
-          Pets<span className="italic text-amber-700">Rescue</span>
+          Pets<span className="italic text-emerald-800">Rescue</span>
         </Link>
 
         <div className="flex items-center justify-end gap-5 text-xs uppercase tracking-widest text-ink-600">
@@ -48,7 +48,7 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: User }) {
           >
             Bag
             {cartCount > 0 && (
-              <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-700 px-1.5 text-[10px] font-semibold text-cream-50">
+              <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-emerald-800 px-1.5 text-[10px] font-semibold text-cream-50">
                 {cartCount}
               </span>
             )}

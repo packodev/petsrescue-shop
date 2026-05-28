@@ -26,7 +26,7 @@ a {
 }
 
 .eyebrow {
-  @apply text-xs font-semibold uppercase tracking-wider text-amber-700;
+  @apply text-xs font-semibold uppercase tracking-wider text-emerald-800;
 }
 
 .btn {
@@ -34,7 +34,7 @@ a {
 }
 
 .btn-primary {
-  @apply btn bg-amber-600 text-cream-50 shadow-sm hover:bg-amber-700 disabled:opacity-50;
+  @apply btn bg-emerald-700 text-cream-50 shadow-sm hover:bg-emerald-800 disabled:opacity-50;
 }
 
 .btn-secondary {
@@ -54,7 +54,7 @@ a {
 }
 
 .input {
-  @apply w-full rounded-md border border-ink-200 bg-white px-3 py-2.5 text-sm text-ink-800 outline-none transition focus:border-amber-600;
+  @apply w-full rounded-md border border-ink-200 bg-white px-3 py-2.5 text-sm text-ink-800 outline-none transition focus:border-emerald-700;
 }
 
 .label {

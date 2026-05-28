@@ -28,7 +28,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
         )}
       </div>
       <div className="mt-4 px-1">
-        <h3 className="font-serif text-lg leading-snug text-ink-900 group-hover:text-amber-700">
+        <h3 className="font-serif text-lg leading-snug text-ink-900 group-hover:text-emerald-800">
           {product.name}
         </h3>
         <div className="mt-1 flex items-baseline gap-2 text-sm">

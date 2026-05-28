@@ -38,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
-        <div className="bg-amber-700 py-2 text-center text-[11px] font-medium uppercase tracking-wider text-cream-50">
+        <div className="bg-emerald-800 py-2 text-center text-[11px] font-medium uppercase tracking-wider text-cream-50">
           Every order helps us rescue, feed & rehome more pets 🐾
         </div>
         <Navbar cartCount={cart.count} user={user} />
