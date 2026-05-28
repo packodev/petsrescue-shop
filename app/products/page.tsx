@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { ProductCard } from "@/components/ProductCard";
+import { parseImages } from "@/lib/product";
 
-export const metadata = { title: "Shop — PetsRescue Co." };
+export const metadata = { title: "Shop — PetsRescue" };
 
 export default async function ProductsPage({
   searchParams,
@@ -75,7 +76,17 @@ export default async function ProductsPage({
       ) : (
         <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <ProductCard
+              key={p.id}
+              product={{
+                slug: p.slug,
+                name: p.name,
+                price: p.price,
+                compareAt: p.compareAt,
+                image: p.image,
+                images: parseImages(p.images),
+              }}
+            />
           ))}
         </div>
       )}
