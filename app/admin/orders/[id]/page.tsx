@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/cart";
 import { updateOrderStatusAction } from "../../actions";
+import { DeleteOrderButton } from "./DeleteOrderButton";
 
 export default async function AdminOrderDetailPage({
   params,
@@ -35,26 +36,29 @@ export default async function AdminOrderDetailPage({
             {new Date(order.createdAt).toLocaleString()}
           </p>
         </div>
-        <form
-          action={updateOrderStatusAction}
-          className="flex items-center gap-2"
-        >
-          <input type="hidden" name="id" value={order.id} />
-          <select
-            name="status"
-            defaultValue={order.status}
-            className="input w-40"
+        <div className="flex items-center gap-3">
+          <form
+            action={updateOrderStatusAction}
+            className="flex items-center gap-2"
           >
-            {statuses.map((s) => (
-              <option key={s} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-          <button type="submit" className="btn-primary">
-            Update
-          </button>
-        </form>
+            <input type="hidden" name="id" value={order.id} />
+            <select
+              name="status"
+              defaultValue={order.status}
+              className="input w-40"
+            >
+              {statuses.map((s) => (
+                <option key={s} value={s}>
+                  {s}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="btn-primary">
+              Update
+            </button>
+          </form>
+          <DeleteOrderButton orderId={order.id} />
+        </div>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">

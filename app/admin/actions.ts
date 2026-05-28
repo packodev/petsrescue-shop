@@ -171,3 +171,13 @@ export async function updateOrderStatusAction(formData: FormData) {
   revalidatePath("/admin/orders");
   revalidatePath(`/admin/orders/${id}`);
 }
+
+export async function deleteOrderAction(formData: FormData) {
+  await requireAdmin();
+  const id = formData.get("id");
+  if (typeof id !== "string") return;
+  // OrderItem.order has onDelete: Cascade, so items go with the order
+  await prisma.order.delete({ where: { id } });
+  revalidatePath("/admin/orders");
+  redirect("/admin/orders");
+}
