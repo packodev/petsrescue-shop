@@ -97,12 +97,14 @@ async function main() {
 
   console.log("Seeding puzzle designs...");
   for (const d of designs) {
+    const listingPrice = sizes[0]!.priceOverride;
     const product = await prisma.product.create({
       data: {
         slug: d.slug,
         name: d.name,
         description: d.description,
-        price: sizes[0]!.priceOverride, // small price as the listing price
+        price: listingPrice, // small price as the listing price
+        compareAt: Math.round(listingPrice * 1.25 * 100) / 100, // 20% off
         stock: 100,
         image: d.image,
         images: JSON.stringify(d.images),

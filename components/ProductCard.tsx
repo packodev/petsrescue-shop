@@ -22,8 +22,8 @@ export function ProductCard({ product }: { product: ProductCardData }) {
           className="object-cover transition duration-700 group-hover:scale-[1.03]"
         />
         {product.compareAt && product.compareAt > product.price && (
-          <span className="absolute left-3 top-3 rounded-full bg-ink-900 px-2 py-1 text-[10px] uppercase tracking-widest text-cream-50">
-            Limited
+          <span className="absolute left-3 top-3 rounded-full bg-red-600 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
+            {Math.round((1 - product.price / product.compareAt) * 100)}% off
           </span>
         )}
       </div>
@@ -31,10 +31,12 @@ export function ProductCard({ product }: { product: ProductCardData }) {
         <h3 className="font-serif text-lg leading-snug text-ink-900 group-hover:text-emerald-800">
           {product.name}
         </h3>
-        <div className="mt-1 flex items-baseline gap-2 text-sm">
-          <span className="text-ink-700">{formatMoney(product.price)}</span>
+        <div className="mt-1.5 flex items-baseline gap-2">
+          <span className="text-base font-bold text-ink-900">
+            {formatMoney(product.price)}
+          </span>
           {product.compareAt && product.compareAt > product.price && (
-            <span className="text-ink-300 line-through">
+            <span className="text-sm text-ink-400 line-through">
               {formatMoney(product.compareAt)}
             </span>
           )}

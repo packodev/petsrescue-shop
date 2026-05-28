@@ -75,13 +75,18 @@ export function ProductView({
           {product.name}
         </h1>
         <div className="mt-5 flex items-baseline gap-3">
-          <span className="font-serif text-2xl text-ink-900">
+          <span className="text-3xl font-bold text-ink-900">
             {formatMoney(price)}
           </span>
           {product.compareAt && product.compareAt > price && (
-            <span className="text-base text-ink-300 line-through">
-              {formatMoney(product.compareAt)}
-            </span>
+            <>
+              <span className="text-lg text-ink-300 line-through">
+                {formatMoney(product.compareAt)}
+              </span>
+              <span className="rounded-full bg-red-100 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-red-700">
+                {Math.round((1 - price / product.compareAt) * 100)}% off
+              </span>
+            </>
           )}
         </div>
 
