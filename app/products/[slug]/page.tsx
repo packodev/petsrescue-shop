@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
+import { parseImages } from "@/lib/product";
 import { ProductView } from "./ProductView";
 
 type Params = { slug: string };
@@ -39,6 +40,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           compareAt: product.compareAt,
           stock: product.stock,
           image: product.image,
+          images: parseImages(product.images),
         }}
         variants={product.variants.map((v) => ({
           id: v.id,

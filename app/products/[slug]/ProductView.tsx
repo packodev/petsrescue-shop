@@ -5,6 +5,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { addToCart } from "@/app/cart/actions";
 import { formatMoney } from "@/lib/money";
+import { HeroCarousel } from "@/components/HeroCarousel";
 
 type Product = {
   id: string;
@@ -14,6 +15,7 @@ type Product = {
   compareAt: number | null;
   stock: number;
   image: string;
+  images: string[];
 };
 
 type Variant = {
@@ -42,23 +44,28 @@ export function ProductView({
 
   const selectedVariant = variants.find((v) => v.id === variantId) ?? null;
   const price = selectedVariant?.priceOverride ?? product.price;
-  const image = selectedVariant?.image ?? product.image;
   const stock = selectedVariant?.stock ?? product.stock;
+
+  const gallery = product.images.length > 0 ? product.images : [product.image];
 
   return (
     <div className="grid gap-14 md:grid-cols-2">
       {/* IMAGE */}
       <div>
-        <div className="relative aspect-[4/5] overflow-hidden bg-cream-100">
-          <Image
-            src={image}
-            alt={product.name}
-            fill
-            priority
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 600px"
-          />
-        </div>
+        {gallery.length > 1 ? (
+          <HeroCarousel images={gallery} />
+        ) : (
+          <div className="relative aspect-[4/5] overflow-hidden bg-cream-100">
+            <Image
+              src={gallery[0]!}
+              alt={product.name}
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 600px"
+            />
+          </div>
+        )}
       </div>
 
       {/* DETAILS */}
