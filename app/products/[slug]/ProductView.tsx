@@ -47,44 +47,23 @@ export function ProductView({
 
   return (
     <div className="grid gap-14 md:grid-cols-2">
-      {/* IMAGES */}
-      <div className="space-y-4">
+      {/* IMAGE */}
+      <div>
         <div className="relative aspect-[4/5] overflow-hidden bg-cream-100">
           <Image
             src={image}
-            alt={
-              selectedVariant ? `${product.name} — ${selectedVariant.name}` : product.name
-            }
+            alt={product.name}
             fill
             priority
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 600px"
           />
         </div>
-        {hasVariants && (
-          <div className="flex gap-3 overflow-x-auto">
-            {variants.map((v) => (
-              <button
-                key={v.id}
-                type="button"
-                onClick={() => setVariantId(v.id)}
-                className={`relative h-20 w-20 shrink-0 overflow-hidden border transition ${
-                  variantId === v.id
-                    ? "border-ink-800"
-                    : "border-ink-100 hover:border-ink-400"
-                }`}
-                aria-label={`Show ${v.name}`}
-              >
-                <Image src={v.image} alt={v.name} fill className="object-cover" sizes="80px" />
-              </button>
-            ))}
-          </div>
-        )}
       </div>
 
       {/* DETAILS */}
       <div className="md:pt-6">
-        <p className="eyebrow">For dog lovers</p>
+        <p className="eyebrow">Pet puzzle</p>
         <h1 className="mt-3 font-serif text-4xl font-normal leading-tight text-ink-900 md:text-5xl">
           {product.name}
         </h1>
@@ -106,7 +85,7 @@ export function ProductView({
         {hasVariants && (
           <div className="mt-8">
             <p className="eyebrow mb-3">
-              Design — <span className="text-ink-700 normal-case tracking-normal">{selectedVariant?.name}</span>
+              Size — <span className="text-ink-700 normal-case tracking-normal">{selectedVariant?.name}</span>
             </p>
             <div className="flex flex-wrap gap-2">
               {variants.map((v) => (
@@ -131,7 +110,7 @@ export function ProductView({
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
             {stock > 0 ? (
-              <span>In stock — engraved & shipped within 5 business days</span>
+              <span>In stock — ships in 7–14 days across the US</span>
             ) : (
               <span className="text-ink-400">Currently sold out</span>
             )}
@@ -178,9 +157,9 @@ export function ProductView({
         </div>
 
         <ul className="mt-10 space-y-2 border-t border-ink-100 pt-6 text-xs uppercase tracking-widest text-ink-500">
-          <li>Complimentary shipping over $50</li>
-          <li>Hand-engraved, dishwasher safe</li>
-          <li>Lifetime craftsmanship promise</li>
+          <li>Premium cardboard, eco-friendly inks</li>
+          <li>Ships in a gift-ready box</li>
+          <li>Every order supports our rescue work</li>
         </ul>
       </div>
     </div>
