@@ -20,7 +20,7 @@ export default async function SuccessPage({
   return (
     <div className="mx-auto max-w-2xl px-6 py-20">
       <div className="border border-ink-100 bg-white p-12 text-center">
-        <p className="eyebrow text-emerald-700">Order received</p>
+        <p className="eyebrow text-amber-700">Order received</p>
         <h1 className="mt-4 font-serif text-4xl text-ink-900">Thank you</h1>
         <div className="rule mx-auto my-6" />
         <p className="text-ink-500">

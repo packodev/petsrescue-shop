@@ -30,7 +30,7 @@ export default async function HomePage() {
             <p className="eyebrow">A keepsake that gives back</p>
             <h1 className="mt-4 font-serif text-5xl font-normal leading-[1.05] text-ink-900 md:text-6xl">
               Made with love.<br />
-              <span className="italic text-emerald-700">Bought with purpose.</span>
+              <span className="italic text-amber-700">Bought with purpose.</span>
             </h1>
             <div className="rule mt-6" />
             <p className="mt-6 max-w-md text-base leading-relaxed text-ink-500">
@@ -80,7 +80,7 @@ export default async function HomePage() {
               },
             ].map((s) => (
               <div key={s.step} className="text-center">
-                <div className="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-emerald-700 font-serif text-sm text-emerald-700">
+                <div className="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-amber-700 font-serif text-sm text-amber-700">
                   {s.step}
                 </div>
                 <h3 className="mt-5 font-serif text-xl text-ink-900">{s.title}</h3>
@@ -107,7 +107,7 @@ export default async function HomePage() {
             <p className="eyebrow">Why we do this</p>
             <h2 className="section-title mt-2">
               For the ones who<br />
-              <em className="not-italic italic text-emerald-700">need us most.</em>
+              <em className="not-italic italic text-amber-700">need us most.</em>
             </h2>
             <div className="rule mt-6" />
             <p className="mt-6 leading-relaxed text-ink-500">
@@ -207,7 +207,7 @@ export default async function HomePage() {
       {/* FINAL CTA */}
       <section className="border-t border-ink-100 bg-ink-900 text-cream-50">
         <div className="mx-auto max-w-6xl px-6 py-20 text-center">
-          <p className="text-xs uppercase tracking-widest text-emerald-400">
+          <p className="text-xs uppercase tracking-widest text-amber-300">
             One puzzle · one quiet afternoon · one rescued life
           </p>
           <h2 className="mt-4 font-serif text-4xl text-cream-50 md:text-5xl">

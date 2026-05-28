@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -12,7 +12,7 @@ const sans = Inter({
   display: "swap",
 });
 
-const serif = Cormorant_Garamond({
+const serif = Fraunces({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-serif",
@@ -38,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
-        <div className="bg-ink-900 py-2 text-center text-[11px] uppercase tracking-widest text-cream-100">
+        <div className="bg-amber-700 py-2 text-center text-[11px] font-medium uppercase tracking-wider text-cream-50">
           Every order helps us rescue, feed & rehome more pets 🐾
         </div>
         <Navbar cartCount={cart.count} user={user} />

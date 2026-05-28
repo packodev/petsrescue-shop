@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="font-serif text-2xl text-ink-900">
-              Pets<span className="italic text-emerald-700">Rescue</span>
+              Pets<span className="italic text-amber-700">Rescue</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-500">
               Beautifully illustrated pet puzzles in multiple designs and

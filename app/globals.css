@@ -26,15 +26,15 @@ a {
 }
 
 .eyebrow {
-  @apply text-xs font-medium uppercase tracking-widest text-emerald-700;
+  @apply text-xs font-semibold uppercase tracking-wider text-amber-700;
 }
 
 .btn {
-  @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-wide transition;
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition;
 }
 
 .btn-primary {
-  @apply btn bg-ink-800 text-cream-50 hover:bg-ink-900 disabled:opacity-50;
+  @apply btn bg-amber-600 text-cream-50 shadow-sm hover:bg-amber-700 disabled:opacity-50;
 }
 
 .btn-secondary {
@@ -54,7 +54,7 @@ a {
 }
 
 .input {
-  @apply w-full border border-ink-200 bg-white px-3 py-2.5 text-sm text-ink-800 outline-none transition focus:border-ink-800;
+  @apply w-full rounded-md border border-ink-200 bg-white px-3 py-2.5 text-sm text-ink-800 outline-none transition focus:border-amber-600;
 }
 
 .label {
@@ -62,7 +62,7 @@ a {
 }
 
 .card {
-  @apply border border-ink-100 bg-white;
+  @apply rounded-lg border border-ink-100 bg-white;
 }
 
 .rule {

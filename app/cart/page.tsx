@@ -47,7 +47,7 @@ export default async function CartPage() {
               <div className="flex flex-1 flex-col">
                 <Link
                   href={`/products/${i.slug}`}
-                  className="font-serif text-xl text-ink-900 hover:text-emerald-700"
+                  className="font-serif text-xl text-ink-900 hover:text-amber-700"
                 >
                   {i.name}
                 </Link>
