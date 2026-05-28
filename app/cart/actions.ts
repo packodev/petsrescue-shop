@@ -83,4 +83,5 @@ export async function removeFromCart(
 export async function emptyCart() {
   await clearCart();
   revalidatePath("/cart");
+  revalidatePath("/", "layout");
 }

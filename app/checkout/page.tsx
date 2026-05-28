@@ -6,13 +6,18 @@ import { CheckoutForm } from "./CheckoutForm";
 
 export const metadata = { title: "Checkout — PetsRescue Co." };
 
-export default async function CheckoutPage() {
+export default async function CheckoutPage({
+  searchParams,
+}: {
+  searchParams: { canceled?: string };
+}) {
   const { items, subtotal } = await getCartWithProducts();
   if (items.length === 0) redirect("/cart");
 
   const user = await getCurrentUser();
   const shipping = subtotal >= 50 ? 0 : 7.99;
   const total = subtotal + shipping;
+  const canceled = searchParams.canceled === "1";
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
@@ -21,6 +26,15 @@ export default async function CheckoutPage() {
         <h1 className="section-title mt-2">Almost yours</h1>
         <div className="rule mx-auto mt-5" />
       </header>
+
+      {canceled && (
+        <div className="mx-auto mb-8 max-w-2xl rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+          <p className="font-medium">Payment was canceled.</p>
+          <p className="mt-1 text-amber-800">
+            Your items are still in your bag. Continue when you&apos;re ready.
+          </p>
+        </div>
+      )}
 
       <div className="grid gap-12 md:grid-cols-[1fr_360px]">
         <CheckoutForm defaultEmail={user?.email ?? ""} defaultName={user?.name ?? ""} />

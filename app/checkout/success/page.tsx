@@ -2,8 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
+import { ClearCartOnMount } from "./ClearCartOnMount";
 
-export const metadata = { title: "Order placed — PetsRescue Co." };
+export const metadata = { title: "Order placed — PetsRescue" };
 
 export default async function SuccessPage({
   searchParams,
@@ -19,6 +20,7 @@ export default async function SuccessPage({
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-20">
+      {order.status === "PAID" && <ClearCartOnMount />}
       <div className="border border-ink-100 bg-white p-12 text-center">
         <p className="eyebrow text-emerald-800">Order received</p>
         <h1 className="mt-4 font-serif text-4xl text-ink-900">Thank you</h1>
