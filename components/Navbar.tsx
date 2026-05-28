@@ -9,16 +9,15 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: User }) {
       <div className="mx-auto grid max-w-6xl grid-cols-3 items-center gap-4 px-6 py-5">
         <nav className="hidden items-center gap-7 text-xs uppercase tracking-widest text-ink-600 md:flex">
           <Link href="/products" className="hover:text-ink-900">Shop</Link>
-          <Link href="/products" className="hover:text-ink-900">Collection</Link>
-          <Link href="/#story" className="hover:text-ink-900">Our story</Link>
+          <Link href="/#how-it-works" className="hover:text-ink-900">How it works</Link>
+          <Link href="/about" className="hover:text-ink-900">Our rescue</Link>
         </nav>
 
         <Link
           href="/"
           className="col-span-2 text-center font-serif text-2xl font-medium tracking-wide text-ink-900 md:col-span-1"
         >
-          PetsRescue
-          <span className="ml-1 text-base font-normal italic text-emerald-700">Co.</span>
+          Pets<span className="italic text-emerald-700">Rescue</span>
         </Link>
 
         <div className="flex items-center justify-end gap-5 text-xs uppercase tracking-widest text-ink-600">

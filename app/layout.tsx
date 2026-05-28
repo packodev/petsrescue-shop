@@ -20,9 +20,9 @@ const serif = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "PetsRescue Shop — Engraved keepsakes for dog lovers",
+  title: "PetsRescue — Honor your pet, help us rescue more",
   description:
-    "Hand-engraved drinking glasses for proud dog owners. A timeless gift, made to last.",
+    "Custom 3D crystals laser-engraved with your pet's photo. Every order supports our rescue work — feeding, treating, and rehoming pets in need.",
 };
 
 export default async function RootLayout({
@@ -39,7 +39,7 @@ export default async function RootLayout({
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body className="flex min-h-screen flex-col font-sans">
         <div className="bg-ink-900 py-2 text-center text-[11px] uppercase tracking-widest text-cream-100">
-          Complimentary shipping on orders over $50
+          Every order helps us rescue, feed & rehome more pets 🐾
         </div>
         <Navbar cartCount={cart.count} user={user} />
         <main className="flex-1">{children}</main>
