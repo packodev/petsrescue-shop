@@ -76,10 +76,10 @@ export default async function AboutPage() {
         <div className="mt-10 space-y-6 text-base leading-relaxed text-ink-600">
           <p>
             When you order a crystal, you&apos;re paying for two things at
-            once: a hand-engraved keepsake of your own pet, and the
-            continuation of this rescue work. After we cover the cost of the
-            crystal itself and shipping it to you, what&apos;s left goes
-            directly to the animals.
+            once: a beautifully hand-finished keepsake, and the continuation
+            of this rescue work. After we cover the cost of the crystal
+            itself and shipping it to you, what&apos;s left goes directly to
+            the animals.
           </p>
           <p>That means:</p>
           <ul className="ml-6 list-disc space-y-2 text-ink-600">
@@ -121,7 +121,7 @@ export default async function AboutPage() {
         <h2 className="section-title">Ready to help?</h2>
         <div className="rule mx-auto mt-5" />
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-500">
-          Order a 3D crystal of your own pet. Get a keepsake that lasts a
+          Pick a 3D crystal from our collection. Get a keepsake that lasts a
           lifetime — and help another animal find one too.
         </p>
         <div className="mt-8">

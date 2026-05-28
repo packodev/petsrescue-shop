@@ -34,9 +34,9 @@ export default async function HomePage() {
             </h1>
             <div className="rule mt-6" />
             <p className="mt-6 max-w-md text-base leading-relaxed text-ink-500">
-              A 3D crystal laser-engraved with your pet&apos;s photo —
-              hand-finished and made to last a lifetime. Every order helps us
-              feed, treat and rehome more animals.
+              A collection of 3D laser-engraved crystals — hand-finished and
+              made to last a lifetime. Every order helps us feed, treat and
+              rehome more animals.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <Link
@@ -58,25 +58,25 @@ export default async function HomePage() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="text-center">
             <p className="eyebrow">How it works</p>
-            <h2 className="section-title mt-2">From your photo to your shelf</h2>
+            <h2 className="section-title mt-2">From our shelf to yours</h2>
             <div className="rule mx-auto mt-5" />
           </div>
           <div className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-3">
             {[
               {
                 step: "01",
-                title: "Send us a photo",
-                body: "Upload any clear photo of your pet — full body or just the face. We work from your image.",
+                title: "Choose your design",
+                body: "Browse our collection of 3D laser-engraved crystals. Each design is unique — pick the one that speaks to you.",
               },
               {
                 step: "02",
-                title: "We engrave the crystal",
-                body: "Your photo is laser-etched in 3D inside premium optical crystal. Each piece is checked by hand.",
+                title: "Hand-finished & packaged",
+                body: "Every crystal is inspected by hand and carefully packaged in a protective gift box, ready to display or give.",
               },
               {
                 step: "03",
                 title: "Ships in 7–14 days",
-                body: "Carefully packaged and delivered to your door. A keepsake that lasts a lifetime — and helps more animals.",
+                body: "Delivered to your door across the United States. A keepsake that lasts a lifetime — and helps more animals.",
               },
             ].map((s) => (
               <div key={s.step} className="text-center">
@@ -171,15 +171,15 @@ export default async function HomePage() {
           {[
             {
               q: "How long does it take?",
-              a: "Each crystal is engraved to order. Most ship in 7–14 days from when we receive your photo.",
-            },
-            {
-              q: "What kind of photo should I send?",
-              a: "Any clear, well-lit photo of your pet works best. Higher resolution gives a sharper engraving. We'll let you know if we need a different image.",
+              a: "Most orders ship within 7–14 days. You'll get a tracking link by email as soon as your crystal is on its way.",
             },
             {
               q: "Do you ship to all 50 US states?",
               a: "Yes — we currently ship across the United States only.",
+            },
+            {
+              q: "How is the crystal made?",
+              a: "Each piece is K9 optical crystal with a 3D image laser-engraved inside. The image appears suspended within the crystal — no surface etching, no fading over time.",
             },
             {
               q: "How much of my purchase goes to the rescue?",
