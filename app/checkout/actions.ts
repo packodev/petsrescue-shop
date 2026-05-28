@@ -46,7 +46,7 @@ export async function placeOrderAction(
     return { error: "Your cart is empty" };
   }
 
-  const shipping = subtotal >= 50 ? 0 : 7.99;
+  const shipping = 0;
   const total = subtotal + shipping;
 
   const user = await getCurrentUser();
@@ -103,18 +103,15 @@ export async function placeOrderAction(
         quantity: i.quantity,
       })),
     ],
-    shipping_options:
-      shipping > 0
-        ? [
-            {
-              shipping_rate_data: {
-                type: "fixed_amount",
-                fixed_amount: { amount: Math.round(shipping * 100), currency: "usd" },
-                display_name: "Standard shipping (7–14 days)",
-              },
-            },
-          ]
-        : undefined,
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          type: "fixed_amount",
+          fixed_amount: { amount: 0, currency: "usd" },
+          display_name: "Free standard shipping (7–14 days)",
+        },
+      },
+    ],
     success_url: `${origin}/checkout/success?id=${order.id}`,
     cancel_url: `${origin}/checkout?canceled=1`,
     metadata: { orderId: order.id },

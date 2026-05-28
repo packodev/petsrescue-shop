@@ -53,7 +53,7 @@ export default async function SuccessPage({
           </div>
           <div className="flex justify-between text-ink-600">
             <span>Shipping</span>
-            <span>{order.shipping === 0 ? "Complimentary" : formatMoney(order.shipping)}</span>
+            <span>{order.shipping === 0 ? "Free" : formatMoney(order.shipping)}</span>
           </div>
           <div className="flex justify-between border-t border-ink-100 pt-3 font-serif text-lg text-ink-900">
             <span>Total</span>

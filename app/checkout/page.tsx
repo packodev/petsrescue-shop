@@ -15,7 +15,7 @@ export default async function CheckoutPage({
   if (items.length === 0) redirect("/cart");
 
   const user = await getCurrentUser();
-  const shipping = subtotal >= 50 ? 0 : 7.99;
+  const shipping = 0;
   const total = subtotal + shipping;
   const canceled = searchParams.canceled === "1";
 
@@ -66,7 +66,7 @@ export default async function CheckoutPage({
           </div>
           <div className="flex justify-between text-ink-600">
             <span>Shipping</span>
-            <span>{shipping === 0 ? "Complimentary" : formatMoney(shipping)}</span>
+            <span>Free</span>
           </div>
           <div className="flex justify-between border-t border-ink-100 pt-4 font-serif text-lg text-ink-900">
             <span>Total</span>

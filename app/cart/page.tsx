@@ -4,11 +4,11 @@ import { getCartWithProducts } from "@/lib/cart";
 import { formatMoney } from "@/lib/money";
 import { CartLineControls } from "./CartLineControls";
 
-export const metadata = { title: "Your bag — PetsRescue Co." };
+export const metadata = { title: "Your bag — PetsRescue" };
 
 export default async function CartPage() {
   const { items, subtotal } = await getCartWithProducts();
-  const shipping = subtotal === 0 ? 0 : subtotal >= 50 ? 0 : 7.99;
+  const shipping = 0;
   const total = subtotal + shipping;
 
   if (items.length === 0) {
@@ -83,13 +83,8 @@ export default async function CartPage() {
           </div>
           <div className="flex justify-between text-ink-600">
             <span>Shipping</span>
-            <span>{shipping === 0 ? "Complimentary" : formatMoney(shipping)}</span>
+            <span>Free</span>
           </div>
-          {subtotal < 50 && (
-            <p className="text-xs italic text-ink-400">
-              Add {formatMoney(50 - subtotal)} more for complimentary shipping.
-            </p>
-          )}
           <div className="border-t border-ink-100 pt-4 flex justify-between font-serif text-lg text-ink-900">
             <span>Total</span>
             <span>{formatMoney(total)}</span>

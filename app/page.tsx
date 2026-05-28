@@ -87,8 +87,8 @@ export default async function HomePage() {
               },
               {
                 step: "03",
-                title: "Ships in 7–14 days",
-                body: "Delivered to your door across the United States. A gift, a hobby, and a rescued animal — all in one.",
+                title: "Free shipping, 7–14 days",
+                body: "Delivered free to your door across the United States. A gift, a hobby, and a rescued animal — all in one.",
               },
             ].map((s) => (
               <div key={s.step} className="text-center">
@@ -187,7 +187,7 @@ export default async function HomePage() {
             },
             {
               q: "Do you ship to all 50 US states?",
-              a: "Yes — we currently ship across the United States only.",
+              a: "Yes — free standard shipping across all 50 US states. We don't ship internationally yet.",
             },
             {
               q: "What are the puzzles made of?",
