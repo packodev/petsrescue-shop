@@ -169,7 +169,6 @@ export function ProductView({
         </div>
 
         <ul className="mt-10 space-y-2 border-t border-ink-100 pt-6 text-xs uppercase tracking-widest text-ink-500">
-          <li>Ships fast</li>
           <li>Every order supports our rescue work</li>
         </ul>
       </div>
