@@ -29,8 +29,8 @@ export default async function HomePage() {
           <div className="md:order-1">
             <p className="eyebrow">A keepsake that gives back</p>
             <h1 className="mt-4 font-serif text-5xl font-normal leading-[1.05] text-ink-900 md:text-6xl">
-              Honor your pet.<br />
-              <span className="italic text-emerald-700">Help us rescue more.</span>
+              Made with love.<br />
+              <span className="italic text-emerald-700">Bought with purpose.</span>
             </h1>
             <div className="rule mt-6" />
             <p className="mt-6 max-w-md text-base leading-relaxed text-ink-500">
