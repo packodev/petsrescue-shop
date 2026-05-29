@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -12,7 +12,7 @@ const sans = Inter({
   display: "swap",
 });
 
-const serif = Fraunces({
+const serif = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-serif",

@@ -45,7 +45,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ["var(--font-serif)", "Fraunces", "Georgia", "serif"],
+        serif: ["var(--font-serif)", "Lora", "Georgia", "serif"],
         sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
       },
       letterSpacing: {
