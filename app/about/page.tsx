@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
@@ -42,58 +41,6 @@ export default async function AboutPage() {
           animals, more consistently, without running out of money halfway
           through a vet bill.
         </p>
-      </section>
-
-      {/* PHOTO PLACEHOLDER */}
-      <div className="my-16 grid grid-cols-2 gap-3 md:grid-cols-3">
-        {[
-          "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=800&q=80",
-          "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=800&q=80",
-          "https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?w=800&q=80",
-        ].map((src) => (
-          <div
-            key={src}
-            className="relative aspect-square overflow-hidden bg-cream-100"
-          >
-            <Image
-              src={src}
-              alt="Rescued pet"
-              fill
-              sizes="(max-width: 768px) 50vw, 33vw"
-              className="object-cover"
-            />
-          </div>
-        ))}
-      </div>
-      <p className="-mt-10 text-center text-xs italic text-ink-400">
-        Photos are placeholders. Real photos of rescued animals will appear here.
-      </p>
-
-      {/* WHAT YOUR ORDER DOES */}
-      <section className="mt-20">
-        <h2 className="section-title text-center">What your order does</h2>
-        <div className="rule mx-auto mt-5" />
-        <div className="mt-10 space-y-6 text-base leading-relaxed text-ink-600">
-          <p>
-            When you order a puzzle, you&apos;re paying for two things at
-            once: a beautifully illustrated pet puzzle, and the continuation
-            of this rescue work. After we cover the cost of the puzzle
-            itself and shipping it to you, what&apos;s left goes directly to
-            the animals.
-          </p>
-          <p>That means:</p>
-          <ul className="ml-6 list-disc space-y-2 text-ink-600">
-            <li>Food for strays who&apos;d otherwise go hungry</li>
-            <li>Vet care — vaccines, treatment, emergency visits</li>
-            <li>Transport and fostering for animals being rehomed</li>
-            <li>Spay/neuter to break the cycle long-term</li>
-          </ul>
-          <p>
-            There&apos;s no overhead, no salaries, no fancy office. Every
-            dollar is accounted for because there&apos;s only one person
-            accounting for it.
-          </p>
-        </div>
       </section>
 
       {/* HONEST DISCLOSURE */}
