@@ -21,25 +21,16 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: User }) {
         </Link>
 
         <div className="flex items-center justify-end gap-5 text-xs uppercase tracking-widest text-ink-600">
-          {user ? (
+          {user?.role === "ADMIN" && (
             <>
-              {user.role === "ADMIN" && (
-                <Link href="/admin" className="hidden hover:text-ink-900 md:inline">
-                  Admin
-                </Link>
-              )}
-              <Link href="/account" className="hidden hover:text-ink-900 sm:inline">
-                Account
+              <Link href="/admin" className="hidden hover:text-ink-900 md:inline">
+                Admin
               </Link>
               <form action={logoutAction}>
                 <button type="submit" className="text-ink-500 hover:text-ink-900">
                   Sign out
                 </button>
               </form>
-            </>
-          ) : (
-            <>
-              <Link href="/login" className="hover:text-ink-900">Sign in</Link>
             </>
           )}
           <Link
