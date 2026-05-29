@@ -38,6 +38,7 @@ export default async function EditProductPage({
             compareAt: product.compareAt,
             stock: product.stock,
             image: product.image,
+            images: product.images,
             categoryId: product.categoryId,
             active: product.active,
             featured: product.featured,

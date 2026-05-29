@@ -52,6 +52,13 @@ export async function saveProductAction(
     return { error: parsed.error.issues[0]?.message ?? "Invalid input" };
   }
   const data = parsed.data;
+
+  const extraImagesRaw = (formData.get("extraImages") ?? "").toString();
+  const extraImages = extraImagesRaw
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+
   const payload = {
     slug: data.slug,
     name: data.name,
@@ -60,6 +67,7 @@ export async function saveProductAction(
     compareAt: data.compareAt ?? null,
     stock: data.stock,
     image: data.image,
+    images: JSON.stringify(extraImages),
     categoryId: data.categoryId,
     active: data.active ?? true,
     featured: data.featured ?? false,

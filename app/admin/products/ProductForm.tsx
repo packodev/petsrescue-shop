@@ -2,6 +2,7 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import { saveProductAction, type ProductFormState } from "../actions";
+import { parseImages } from "@/lib/product";
 
 type Category = { id: string; name: string };
 
@@ -14,6 +15,7 @@ type Product = {
   compareAt: number | null;
   stock: number;
   image: string;
+  images: string;
   categoryId: string;
   active: boolean;
   featured: boolean;
@@ -124,7 +126,7 @@ export function ProductForm({
       </div>
 
       <div>
-        <label className="label" htmlFor="image">Image URL</label>
+        <label className="label" htmlFor="image">Main image URL</label>
         <input
           id="image"
           name="image"
@@ -132,8 +134,30 @@ export function ProductForm({
           required
           defaultValue={product?.image}
           className="input"
-          placeholder="https://images.unsplash.com/..."
+          placeholder="https://i.imgur.com/abc.jpeg"
         />
+        <p className="mt-1 text-xs text-ink-400">
+          Shown on the shop list card. Use a 4:3 image (e.g. 1600×1200).
+        </p>
+      </div>
+
+      <div>
+        <label className="label" htmlFor="extraImages">
+          Additional images (one URL per line)
+        </label>
+        <textarea
+          id="extraImages"
+          name="extraImages"
+          rows={4}
+          defaultValue={parseImages(product?.images).join("\n")}
+          className="input"
+          placeholder="https://i.imgur.com/abc.jpeg&#10;https://i.imgur.com/def.jpeg"
+        />
+        <p className="mt-1 text-xs text-ink-400">
+          Shown as a swipeable carousel on the product detail page. Include
+          the main image again as the first line if you want it to appear in
+          the carousel too.
+        </p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
