@@ -41,7 +41,7 @@ export default async function CartPage() {
               key={`${i.productId}:${i.variantId ?? ""}`}
               className="flex gap-6 border-b border-ink-100 pb-8"
             >
-              <div className="relative aspect-[4/5] w-28 shrink-0 overflow-hidden bg-cream-100">
+              <div className="relative aspect-[4/3] w-28 shrink-0 overflow-hidden bg-cream-100">
                 <Image src={i.image} alt={i.name} fill className="object-cover" sizes="112px" />
               </div>
               <div className="flex flex-1 flex-col">

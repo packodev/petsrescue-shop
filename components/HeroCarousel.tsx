@@ -47,7 +47,7 @@ export function HeroCarousel({ images }: { images: string[] }) {
       {/* Scroll container */}
       <div
         ref={scrollerRef}
-        className="no-scrollbar flex aspect-[4/5] snap-x snap-mandatory overflow-x-auto overflow-y-hidden bg-cream-100 shadow-sm"
+        className="no-scrollbar flex aspect-[4/3] snap-x snap-mandatory overflow-x-auto overflow-y-hidden bg-cream-100 shadow-sm"
       >
         {images.map((src, i) => (
           <div

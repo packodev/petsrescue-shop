@@ -106,7 +106,7 @@ export default async function HomePage() {
       {/* OUR RESCUE STORY */}
       <section id="story" className="mx-auto max-w-6xl px-6 py-24">
         <div className="grid items-center gap-12 md:grid-cols-2">
-          <div className="relative aspect-[4/5] overflow-hidden bg-cream-100">
+          <div className="relative aspect-[4/3] overflow-hidden bg-cream-100">
             <Image
               src="https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=1200&q=85"
               alt="A rescued dog"

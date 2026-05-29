@@ -57,7 +57,7 @@ export function ProductView({
         {gallery.length > 1 ? (
           <HeroCarousel images={gallery} />
         ) : (
-          <div className="relative aspect-[4/5] overflow-hidden bg-cream-100">
+          <div className="relative aspect-[4/3] overflow-hidden bg-cream-100">
             <Image
               src={gallery[0]!}
               alt={product.name}

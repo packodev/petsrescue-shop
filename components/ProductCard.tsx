@@ -13,7 +13,7 @@ export type ProductCardData = {
 export function ProductCard({ product }: { product: ProductCardData }) {
   return (
     <Link href={`/products/${product.slug}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-cream-100">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-cream-100">
         <Image
           src={product.image}
           alt={product.name}
