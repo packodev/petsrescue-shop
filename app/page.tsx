@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
+import { parseImages } from "@/lib/product";
 import { HeroCarousel } from "@/components/HeroCarousel";
 
 export default async function HomePage() {
@@ -10,21 +11,21 @@ export default async function HomePage() {
     orderBy: { featured: "desc" },
   });
 
+  const productExtras = product ? parseImages(product.images) : [];
+  const heroImages =
+    productExtras.length > 0
+      ? productExtras
+      : product
+        ? [product.image]
+        : ["https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?w=1200&q=85"];
+
   return (
     <div>
       {/* HERO */}
       <section className="relative">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
           <div className="md:order-2">
-            <HeroCarousel
-              images={[
-                product?.image ??
-                  "https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?w=1200&q=85",
-                "https://images.unsplash.com/photo-1530041539828-114de669390e?w=1200&q=85",
-                "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?w=1200&q=85",
-                "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=1200&q=85",
-              ]}
-            />
+            <HeroCarousel images={heroImages} />
           </div>
           <div className="md:order-1">
             <p className="eyebrow">A keepsake that gives back</p>
