@@ -20,7 +20,7 @@ const serif = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "PetsRescue — Pet-themed puzzles that help us rescue more",
+  title: "PawsRescue — Pet-themed puzzles that help us rescue more",
   description:
     "Beautifully illustrated pet puzzles in multiple designs and three sizes. Every order supports our rescue work — feeding, treating, and rehoming pets in need.",
 };

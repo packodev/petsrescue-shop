@@ -8,7 +8,7 @@ type Params = { slug: string };
 
 export async function generateMetadata({ params }: { params: Params }) {
   const p = await prisma.product.findUnique({ where: { slug: params.slug } });
-  return { title: p ? `${p.name} — PetsRescue` : "Not found" };
+  return { title: p ? `${p.name} — PawsRescue` : "Not found" };
 }
 
 export default async function ProductPage({ params }: { params: Params }) {

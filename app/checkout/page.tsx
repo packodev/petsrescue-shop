@@ -4,7 +4,7 @@ import { formatMoney } from "@/lib/money";
 import { getCurrentUser } from "@/lib/auth";
 import { CheckoutForm } from "./CheckoutForm";
 
-export const metadata = { title: "Checkout — PetsRescue Co." };
+export const metadata = { title: "Checkout — PawsRescue" };
 
 export default async function CheckoutPage({
   searchParams,

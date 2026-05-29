@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 
-export const metadata = { title: "Admin — PetsRescue Co." };
+export const metadata = { title: "Admin — PawsRescue" };
 
 export default async function AdminLayout({
   children,

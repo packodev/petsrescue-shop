@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
 import { ClearCartOnMount } from "./ClearCartOnMount";
 
-export const metadata = { title: "Order placed — PetsRescue" };
+export const metadata = { title: "Order placed — PawsRescue" };
 
 export default async function SuccessPage({
   searchParams,

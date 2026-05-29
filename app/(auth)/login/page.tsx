@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { LoginForm } from "./LoginForm";
 
-export const metadata = { title: "Sign in — PetsRescue Co." };
+export const metadata = { title: "Sign in — PawsRescue" };
 
 export default function LoginPage() {
   return (

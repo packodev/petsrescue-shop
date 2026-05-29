@@ -2,7 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { ProductCard } from "@/components/ProductCard";
 
-export const metadata = { title: "Shop — PetsRescue" };
+export const metadata = { title: "Shop — PawsRescue" };
 
 export default async function ProductsPage({
   searchParams,

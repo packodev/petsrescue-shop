@@ -124,7 +124,7 @@ export default async function HomePage() {
             </h2>
             <div className="rule mt-6" />
             <p className="mt-6 leading-relaxed text-ink-500">
-              PetsRescue began as a personal mission — feeding, treating and
+              PawsRescue began as a personal mission — feeding, treating and
               rehoming animals one at a time. It&apos;s not a registered
               charity. It&apos;s one person, a lot of strays, and a promise to
               help where we can.

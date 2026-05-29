@@ -7,7 +7,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <div className="font-serif text-2xl text-ink-900">
-              Pets<span className="italic text-emerald-800">Rescue</span>
+              Paws<span className="italic text-emerald-800">Rescue</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-500">
               Beautifully illustrated pet puzzles in multiple designs and
@@ -53,7 +53,7 @@ export function Footer() {
       </div>
       <div className="border-t border-ink-100 py-5">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 text-[11px] uppercase tracking-widest text-ink-400 md:flex-row">
-          <span>© {new Date().getFullYear()} PetsRescue — an individual rescue initiative</span>
+          <span>© {new Date().getFullYear()} PawsRescue — an individual rescue initiative</span>
           <span>Made with love for animals 🐾</span>
         </div>
       </div>

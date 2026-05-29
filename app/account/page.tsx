@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
 import { formatMoney } from "@/lib/money";
 
-export const metadata = { title: "Account — PetsRescue Co." };
+export const metadata = { title: "Account — PawsRescue" };
 
 export default async function AccountPage() {
   const user = await getCurrentUser();

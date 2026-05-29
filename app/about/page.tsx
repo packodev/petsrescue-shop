@@ -3,9 +3,9 @@ import { prisma } from "@/lib/db";
 import { formatMoney } from "@/lib/money";
 
 export const metadata = {
-  title: "Our rescue — PetsRescue",
+  title: "Our rescue — PawsRescue",
   description:
-    "The story behind PetsRescue — a personal mission to feed, treat and rehome animals in need.",
+    "The story behind PawsRescue — a personal mission to feed, treat and rehome animals in need.",
 };
 
 export default async function AboutPage() {
@@ -25,7 +25,7 @@ export default async function AboutPage() {
       {/* OPENING STORY */}
       <section className="mt-16 space-y-6 text-base leading-relaxed text-ink-600">
         <p>
-          PetsRescue isn&apos;t a registered charity. It isn&apos;t a big
+          PawsRescue isn&apos;t a registered charity. It isn&apos;t a big
           organization. It started the way most rescue work does — one
           animal at a time, with whatever resources were at hand.
         </p>
@@ -49,7 +49,7 @@ export default async function AboutPage() {
         <div className="rule mt-4" />
         <div className="mt-5 space-y-4 text-sm leading-relaxed text-ink-600">
           <p>
-            PetsRescue is <strong>not</strong> a registered nonprofit, which
+            PawsRescue is <strong>not</strong> a registered nonprofit, which
             means your purchase is <strong>not</strong> tax-deductible. We
             don&apos;t have official rescue numbers or audited financials to
             show you — because we&apos;re an individual, not an institution.

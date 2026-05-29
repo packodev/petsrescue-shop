@@ -4,7 +4,7 @@ import { getCartWithProducts } from "@/lib/cart";
 import { formatMoney } from "@/lib/money";
 import { CartLineControls } from "./CartLineControls";
 
-export const metadata = { title: "Your bag — PetsRescue" };
+export const metadata = { title: "Your bag — PawsRescue" };
 
 export default async function CartPage() {
   const { items, subtotal } = await getCartWithProducts();

@@ -17,7 +17,7 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: User }) {
           href="/"
           className="col-span-2 text-center font-serif text-2xl font-medium tracking-wide text-ink-900 md:col-span-1"
         >
-          Pets<span className="italic text-emerald-800">Rescue</span>
+          Paws<span className="italic text-emerald-800">Rescue</span>
         </Link>
 
         <div className="flex items-center justify-end gap-5 text-xs uppercase tracking-widest text-ink-600">
