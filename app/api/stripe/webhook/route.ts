@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { prisma } from "@/lib/db";
+import {
+  sendOrderConfirmationEmail,
+  sendAdminNotificationEmail,
+} from "@/lib/email";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
@@ -37,10 +41,40 @@ export async function POST(req: NextRequest) {
     const session = event.data.object as Stripe.Checkout.Session;
     const orderId = session.metadata?.orderId;
     if (orderId && session.payment_status === "paid") {
-      await prisma.order.update({
+      const order = await prisma.order.update({
         where: { id: orderId },
         data: { status: "PAID" },
+        include: { items: true },
       });
+
+      const emailPayload = {
+        id: order.id,
+        email: order.email,
+        fullName: order.fullName,
+        address: order.address,
+        city: order.city,
+        postalCode: order.postalCode,
+        country: order.country,
+        phone: order.phone,
+        subtotal: order.subtotal,
+        shipping: order.shipping,
+        total: order.total,
+        items: order.items.map((i) => ({
+          name: i.name,
+          variantName: i.variantName,
+          quantity: i.quantity,
+          price: i.price,
+          image: i.image,
+        })),
+      };
+
+      // Fire both emails in parallel; failures are swallowed inside the
+      // email helpers so a Resend outage cannot block the webhook 200
+      // and trigger Stripe to retry endlessly.
+      await Promise.all([
+        sendOrderConfirmationEmail(emailPayload),
+        sendAdminNotificationEmail(emailPayload),
+      ]);
     }
   }
 
