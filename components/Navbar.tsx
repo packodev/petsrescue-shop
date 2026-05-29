@@ -8,9 +8,9 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: User }) {
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-cream-50/95 backdrop-blur">
       <div className="mx-auto grid max-w-6xl grid-cols-3 items-center gap-4 px-6 py-5">
         <nav className="hidden items-center gap-7 text-xs uppercase tracking-widest text-ink-600 md:flex">
+          <Link href="/" className="hover:text-ink-900">Home</Link>
           <Link href="/products" className="hover:text-ink-900">Shop</Link>
           <Link href="/#how-it-works" className="hover:text-ink-900">How it works</Link>
-          <Link href="/about" className="hover:text-ink-900">Our rescue</Link>
         </nav>
 
         <Link
@@ -21,6 +21,9 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: User }) {
         </Link>
 
         <div className="flex items-center justify-end gap-5 text-xs uppercase tracking-widest text-ink-600">
+          <Link href="/about" className="hidden hover:text-ink-900 md:inline">
+            Our rescue
+          </Link>
           {user?.role === "ADMIN" && (
             <>
               <Link href="/admin" className="hidden hover:text-ink-900 md:inline">
