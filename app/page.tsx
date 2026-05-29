@@ -198,14 +198,6 @@ export default async function HomePage() {
               q: "What sizes are available?",
               a: "Three sizes for every design — small (around 250 pieces), medium (around 500 pieces) and large (around 1,000 pieces). Exact piece count is shown on each product page.",
             },
-            {
-              q: "How much of my purchase goes to the rescue?",
-              a: "Our work is funded entirely by these orders. After production and shipping, what remains goes directly to feeding, treating and rehoming animals.",
-            },
-            {
-              q: "Is this a registered nonprofit?",
-              a: "No. PetsRescue is a personal initiative — not a registered charity. We're upfront about that so you know exactly what you're supporting.",
-            },
           ].map((f) => (
             <div key={f.q} className="py-6">
               <dt className="font-serif text-lg text-ink-900">{f.q}</dt>
